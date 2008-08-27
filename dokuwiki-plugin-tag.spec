@@ -23,6 +23,10 @@ specified in the configuration.
 
 %prep
 %setup -q -n %{plugin}
+if [ $(cat VERSION | tr -d -) != %{version} ]; then
+	: %%{version} mismatch, should be: $(cat VERSION | tr -d -)
+	exit 1
+fi
 
 %install
 rm -rf $RPM_BUILD_ROOT
