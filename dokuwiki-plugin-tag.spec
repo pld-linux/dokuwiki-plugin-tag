@@ -1,14 +1,14 @@
 %define		plugin		tag
 Summary:	DokuWiki Tag Plugin
 Name:		dokuwiki-plugin-%{plugin}
-Version:	20120328
+Version:	20160116
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://github.com/dokufreaks/plugin-tag/tarball/master/%{name}-%{version}.tgz
-# Source0-md5:	ddfb8d16b315e61ca68e5b6daa7d305d
-URL:		http://www.dokuwiki.org/plugin:tag
-Requires:	dokuwiki >= 20070626
+Source0:	https://github.com/dokufreaks/plugin-tag/archive/39c0568/%{name}-%{version}.tar.gz
+# Source0-md5:	cc1b3fd8eabd3fbf468d04e1c7e467b5
+URL:		https://www.dokuwiki.org/plugin:tag
+Requires:	dokuwiki >= 20131208
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -25,18 +25,19 @@ specified in the configuration.
 %prep
 %setup -qc
 mv *-%{plugin}-*/* .
+rm -r _test
 
+%build
 version=$(awk '/^date/{print $2}' plugin.info.txt)
 if [ "$(echo "$version" | tr -d -)" != %{version} ]; then
 	: %%{version} mismatch
-#	exit 1
 fi
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
 cp -a . $RPM_BUILD_ROOT%{plugindir}
-rm -f $RPM_BUILD_ROOT%{plugindir}/{COPYING,README}
+rm $RPM_BUILD_ROOT%{plugindir}/{COPYING,README}
 
 %find_lang %{name}.lang
 
