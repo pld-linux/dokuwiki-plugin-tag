@@ -2,7 +2,7 @@
 Summary:	DokuWiki Tag Plugin
 Name:		dokuwiki-plugin-%{plugin}
 Version:	20160116
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	https://github.com/dokufreaks/plugin-tag/archive/39c0568/%{name}-%{version}.tar.gz
