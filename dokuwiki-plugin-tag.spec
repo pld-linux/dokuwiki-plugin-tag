@@ -1,12 +1,12 @@
 %define		plugin		tag
 Summary:	DokuWiki Tag Plugin
 Name:		dokuwiki-plugin-%{plugin}
-Version:	20160116
-Release:	2
+Version:	20231017
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	https://github.com/dokufreaks/plugin-tag/archive/39c0568/%{name}-%{version}.tar.gz
-# Source0-md5:	cc1b3fd8eabd3fbf468d04e1c7e467b5
+Source0:	https://github.com/dokufreaks/plugin-tag/archive/50251e3/%{name}-%{version}.tar.gz
+# Source0-md5:	84bd9a850b6e2b0fba9a18fa3e7bb014
 URL:		https://www.dokuwiki.org/plugin:tag
 Requires:	dokuwiki >= 20131208
 BuildArch:	noarch
@@ -15,7 +15,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		dokuconf	/etc/webapps/dokuwiki
 %define		dokudir		/usr/share/dokuwiki
 %define		plugindir	%{dokudir}/lib/plugins/%{plugin}
-%define		find_lang 	%{_usrlibrpm}/dokuwiki-find-lang.sh %{buildroot}
+%define		find_lang 	%{_rpmconfigdir}/dokuwiki-find-lang.sh %{buildroot}
 
 %description
 The Tag Plugin lets you assign category tags to wiki pages. It will
